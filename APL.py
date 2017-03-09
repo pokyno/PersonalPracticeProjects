@@ -1,6 +1,8 @@
 import io
-programs = [
+from HelloWorld import HelloWorld
 
+programs = [
+HelloWorld()
 ]
 
 def init():
@@ -28,7 +30,7 @@ def main():
             print("Program closing")
             break
 
-        if 0 <= userInput and userInput < programs.count:
-            programs[userInput].start() #start the application
+        if 0 <= userInput and userInput < len(programs):
+            programs[userInput].start #start the application
 
 main()
