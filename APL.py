@@ -31,6 +31,6 @@ def main():
             break
 
         if 0 <= userInput and userInput < len(programs):
-            programs[userInput].start #start the application
+            programs[userInput].start() #start the application
 
 main()

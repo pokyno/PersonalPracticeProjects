@@ -2,7 +2,7 @@
 class HelloWorld:
     name = "Hello world"
 
-    def start():
+    def start(self):
         print("Hello World")
 
 #------------------------------------------------------------------------------
