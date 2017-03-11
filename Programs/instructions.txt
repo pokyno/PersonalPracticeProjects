@@ -1,0 +1,21 @@
+This program allows for a modular start screen
+
+A created program must have the following structure
+
+def classStart():
+    return test2()
+#------------------------------------------------------------------------------
+class test2:
+    name = "test2"
+
+    def start(self):
+        print("test2 start")
+
+#------------------------------------------------------------------------------
+
+there are some Names that cant be used the ones
+I found are all the included modules of python
+
+such as test, sys and io
+
+the program will notify the programmer if something went wrong when importing the program

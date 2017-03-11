@@ -1,11 +1,36 @@
 import io
-from HelloWorld import HelloWorld
+import os
+import sys
+import importlib
 
-programs = [
-HelloWorld()
-]
+programsFolder = os.path.join(os.path.dirname(os.path.abspath(__file__)),"Programs")
+programs = []
 
-def init():
+def importPrograms():
+    print("-----------------------------------------")
+    print("Loading programs in the Programs folder:")
+    print("-----------------------------------------")
+
+    print("Reading the files------------------------")
+    filenames = next(os.walk(programsFolder))[2]
+    sys.path.append(programsFolder) #add to the pathenv
+
+    for f in filenames:
+        try:
+            f = f.split(".")[0]
+            print("Loading %s" % f)
+
+            imported = importlib.import_module(f)
+            programs.append(imported.classStart())
+
+            print("%s loaded" % f)
+        except:
+            print("module %s failed to load" % f)
+
+    sys.path.pop()
+    print("-----------------------------------------\n")
+
+def printPrograms():
     print("------------------------------------------")
     print("The programs that currently installed are:\n")
     print("------------------------------------------")
@@ -16,8 +41,9 @@ def init():
     print("------------------------------------------")
 
 def main():
-    init()
+    importPrograms()
     while(True):
+        printPrograms()
         print("Enter the desired program number(-1 to exit):")
         userInput = 0
         try:
